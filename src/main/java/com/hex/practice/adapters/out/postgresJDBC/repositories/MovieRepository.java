@@ -12,6 +12,6 @@ import java.util.Optional;
 @Repository
 public interface MovieRepository extends CrudRepository<MovieEntity,Long> {
 
-    @Query("select * from where title =:title")
+    @Query("SELECT * FROM movies WHERE title = :title")
     Optional<Movie> findMovieByTitle(@Param("title") String title);
 }

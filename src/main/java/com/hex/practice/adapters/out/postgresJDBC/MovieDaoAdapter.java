@@ -8,10 +8,12 @@ import com.hex.practice.domain.Movie;
 import com.hex.practice.infrastructure.exceptions.ErrorCode;
 import com.hex.practice.infrastructure.exceptions.MovieAlreadyExistException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 @RequiredArgsConstructor
+@Component
 public class MovieDaoAdapter implements MovieDAO {
 
     private  final MovieRepository movieRepository;
@@ -45,10 +47,13 @@ public class MovieDaoAdapter implements MovieDAO {
     @Override
     public void deleteMovie(Movie deletedMovie) {
 
+        //implement delete movie method
+
     }
 
     @Override
     public void updateMovie(Movie updatedMovie) {
+        movieRepository.save(new MovieEntity(null, updatedMovie.title(), updatedMovie.description(),updatedMovie.releaseDate(), updatedMovie.directorName(),null));
 
     }
 }
